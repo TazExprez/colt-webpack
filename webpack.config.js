@@ -10,7 +10,7 @@ module.exports = {
   output: {
     // Here you will create a file called main.js inside a directory called dist.
     // filename: "main.js",
-    // This is an example of a content hash.  The abc that was inserted here would actually be generated depending on the content of main.js.  It would be a different value for different content.  If the content did not change, the hash would remain the same.  We do this in order to perform cache busting.  Pages get cached in browsers and the browsers will display what they have in the cache when you go to a site, thinking that the content has not changed.  When we use a content hash, since the name will be different, the browser will think that the content is different and display that, instead of whatever is in the cache.
+    // This is an example of a content hash.  The abc that was inserted here, originally, would actually be generated depending on the content of main.js.  It would be a different value for different content.  If the content did not change, the hash would remain the same.  We do this in order to perform cache busting.  Pages get cached in browsers and the browsers will display what they have in the cache when you go to a site, thinking that the content has not changed.  When we use a content hash, since the name will be different, the browser will think that the content is different and display that, instead of whatever is in the cache.
     // We get the content hash by running main.js through a special hashing function.  A very famous one is MD5.  If you change just a single character in main.js, you will get a completely different hash.  Every time we change the code, the filename changes.  When we don't change the code, the filename stays the same.  We're cache busting every time we change the code because a new filename is generated.
     // You will normally want to do your content hash in the "main.[contentHash].js" format, with the content hash in brackets, surrounded by dots.  You can also do "vendor.[contentHash].js".  You don't want to do "[contentHash].js".  GitHub does the content hash with a dash, github-contentHash.css and frameworks-contentHash.css.
     // When you build this, a content hash will be created from the content in the main.js file, but before the new file with the content hash name is created.  Colt thinks MD5 is the algorithm used for this.  The brackets will not be included in the name, only the dots will be included.
@@ -19,7 +19,7 @@ module.exports = {
     // This path.resolve will resolve an absolute path to the dist directory.  Basically it will load dist into the current directory of the user.  Everyone has a different setup, so this way you don't get extra directories created in your machine.
     path: path.resolve(__dirname, "dist")
   },
-  // Plugins is an array that contains as many plugins as we want.
+  // plugins is an array that contains as many plugins as we want.
   // We're making a new instance of HtmlWebpackPlugin in the plugins array.
   plugins: [
     new HtmlWebpackPlugin({
@@ -32,7 +32,7 @@ module.exports = {
     rules: [
       {
         // Any time you come across a CSS file, use css-loader.
-        // /\.css$/ is a regular expression, regex, that looks for any file ending in .css.  The \ is used to escape the ., so that it can be used.  The $ looks for something that ends in .css.
+        // /\.css$/ is a regular expression, regex, that looks for any file ending in .css.  The \ is used to escape the ., so that it can be searched for by the regex.  The $ looks for something that ends in .css.
         // test: /\.css$/,
         // css-loader takes your CSS and it turns it into JavaScript.  Then style-loader will take that JavaScript, which is actually CSS, and inject it into the DOM.
         // The tricky part here is that there is an order to this array.  You have to use the loaders in the correct order.  You have to translate the CSS to JavaScript before you can inject.  They are loaded in reverse, the order goes from right to left, so css-loader is on the right and style-loader is on the left.
