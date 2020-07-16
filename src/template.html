@@ -1,15 +1,14 @@
-<!-- We are going to have webpack build our HTML file and stick it in the dist folder
-for us.  This way webpack will automatically come up with the correct script name
-for main.[contentHash].js. and stick it at the bottom.  To do this, we have to learn about plugins. -->
-<!-- After creating the template.html file, this one can be deleted. -->
+<!-- We are doing this template for webpack to generate a HTML file for us. -->
+<!-- We are going to tell the HtmlWebpackPlugin webpack plugin to use this code from this file, put the script tag at the bottom, and make sure it's the correct script tag, whatever the content hash is, it needs to match. -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta
+    <!-- This is not needed anymore because webpack will take care of it. -->
+    <!-- <meta
       name="viewport"
       content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
-    />
+    /> -->
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Webpack Demo</title>
   </head>
@@ -37,11 +36,6 @@ for main.[contentHash].js. and stick it at the bottom.  To do this, we have to l
     </div>
     <img src="./assets/webpack.svg" />
   </body>
-  <!-- <script src="./src/app/alert.service.js"></script>
-  <script src="./src/app/component.service.js"></script>
-  <script src="./src/app/utils/inputs-are-valid.js"></script>
-  <script src="./src/app/utils/parse-inputs.js"></script> -->
-  <!-- This script is placed at the bottom because it depends on everything else loading first. -->
-  <!-- <script src="./src/app/app.js"></script> -->
-  <script src="./dist/main.js"></script>
+  <!-- This is not needed anymore because webpack will take care of it. -->
+  <!-- <script src="./dist/main.js"></script> -->
 </html>
