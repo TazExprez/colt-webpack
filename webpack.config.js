@@ -17,10 +17,18 @@ module.exports = {
       {
         // Any time you come across a CSS file, use css-loader.
         // /\.css$/ is a regular expression, regex, that looks for any file ending in .css.  The \ is used to escape the ., so that it can be used.  The $ looks for something that ends in .css.
-        test: /\.css$/,
+        // test: /\.css$/,
         // css-loader takes your CSS and it turns it into JavaScript.  Then style-loader will take that JavaScript, which is actually CSS, and inject it into the DOM.
         // The tricky part here is that there is an order to this array.  You have to use the loaders in the correct order.  You have to translate the CSS to JavaScript before you can inject.  They are loaded in reverse, the order goes from right to left, so css-loader is on the right and style-loader is on the left.
-        use: ["style-loader", "css-loader"]
+        // use: ["style-loader", "css-loader"]
+        // Here you are testing for sass files.
+        test: /\.scss/,
+        // There is an addional step when dealing with sass.  You must first convert the sass into css and then proceed with the two steps required for css.
+        use: [
+          "style-loader", // Step 3: Inject styles into DOM.
+          "css-loader", // Step 2: Turns css into commonjs.  It converts the CSS into JavaScript.
+          "sass-loader" // Step 1: Turns sass into css.
+        ]
       }
     ]
   }
