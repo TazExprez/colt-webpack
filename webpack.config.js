@@ -1,3 +1,4 @@
+// We are not using this file anymore and are using the webpack.common.js file, instead.
 // Here we are importing a path module from Node.js.  We don't have to install it because it comes with Node.js.
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");

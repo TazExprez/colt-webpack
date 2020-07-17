@@ -5,7 +5,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack --config webpack.config.js"
+    "comment1start": "webpack --config webpack.dev.js",
+    "comment2": "this is the webpack-dev-server running webpack in dev mode and the open flag is for opening a window in the web browser for us",
+    "comment3": "this is all run in memory and it will not create a dist folder for us",
+    "start": "webpack-dev-server --config webpack.dev.js --open",
+    "comment4": "for this to run you have to type npm run build",
+    "comment5": "this is your production build",
+    "build": "webpack --config webpack.prod.js"
   },
   "keywords": [],
   "author": "",
@@ -18,6 +24,8 @@
     "sass-loader": "^9.0.2",
     "style-loader": "^1.2.1",
     "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.12"
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^5.0.9"
   }
 }
