@@ -37,12 +37,23 @@ const { merge } = require("webpack-merge");
 // Here we are using what was left of the module.exports above, but cleaned up a bit.
 // Here we are setting module.exports to be a function call of merge.  We are passing in common and an object with the contents of what was left of the module.exports object above.
 // What this is saying is merge whatever is in common, which is whatever is in the webpack.common.js module.exports object, with what we have in the object passed into the merge function.
+// module.exports = merge(common, {
+//   mode: "development",
+//   output: {
+//     filename: "main.js",
+//     path: path.resolve(__dirname, "dist")
+//   }
+// });
+
+// We're going to set up a webpack dev server, so that when we are in developer mode we don't have to keep on building running npm start every time we want to see a change that we did.
+
+// Here we are using what was left of the module.exports above, but cleaned up a bit.
 module.exports = merge(common, {
   mode: "development",
   output: {
-    filename: "main.js",
+    // We changed this around so that every .js file that gets run in dev mode is not called main.  This will handle both main and vendor in the [name] section.
+    // filename: "main.js",
+    filename: "[name].bundle.js",
     path: path.resolve(__dirname, "dist")
   }
 });
-
-// We're going to set up a webpack dev server, so that when we are in developer mode we don't have to keep on building running npm start every time we want to see a change that we did.
