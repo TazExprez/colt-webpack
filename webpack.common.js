@@ -52,7 +52,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 // };
 
 // Now we will focus on getting webpack to spit out mulitple bundles.  Instead of just one with everything, we might want to separate out our own app code from our vendor code.  So let's say we're using Bootstrap JavaScript and maybe jQuery and some other library that we need.  These are not going to change very much, or ever, in our application, but our main code will.
-// We can have two different bundles and one of them will be vendor.someHashInTheMiddle.js.  It will stay the same, almost all the time, unless we update that code, or we upgrade what version of Bootstrap JavaScript we're using, or something like that.  And then we can have our main changes more frequently.
+// We can have two different bundles and one of them will be vendor.someHashInTheMiddle.js.  It will stay the same, almost all the time, unless we update that code, or we upgrade what version of Bootstrap JavaScript we're using, or something like that.  And then we can have our main.js changes more frequently.
 
 // Here we are using what was left of the module.exports above, but cleaned up a bit.
 module.exports = {
