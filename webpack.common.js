@@ -2,7 +2,9 @@
 // If we want dev and prod to include the same functionality from common, then we have to use a package called webpack-merge.
 // webpack-merge allows us to very easily merge webpack config files together.
 const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+// Not needed any longer because this is now used in webpack.prod.js and webpack.dev.js because we don't want the HTML to be minified in development, we only want this to happen in production.
+// const HtmlWebpackPlugin = require("html-webpack-plugin");
+const webpack = require("webpack");
 
 // This is what we are exporting from webpack.common.js.
 // module.exports = {
@@ -65,17 +67,19 @@ module.exports = {
     main: "./src/index.js",
     vendor: "./src/vendor.js"
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: "./src/template.html"
-    })
-  ],
+  // We are not going to have any plugins in webpack.common.js and we are going to move this to webpack.prod.js with the minify option because we only want to minify HTML in production, not in development.  Development and production do not share almost anything in the exact same way.
+  // plugins: [
+  //   new HtmlWebpackPlugin({
+  //     template: "./src/template.html"
+  //   })
+  // ],
   module: {
     rules: [
-      {
-        test: /\.scss$/,
-        use: ["style-loader", "css-loader", "sass-loader"]
-      },
+      // We removed this rule from webpack.common.js and moved it into webpack.dev.js because we don't want to use it in webpack.prod.js.
+      // {
+      //   test: /\.scss$/,
+      //   use: ["style-loader", "css-loader", "sass-loader"]
+      // },
       {
         test: /\.html$/,
         use: ["html-loader"]
